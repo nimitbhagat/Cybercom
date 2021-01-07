@@ -1,0 +1,9 @@
+Got to know more new git commands.
+
+	->git log
+	->git reset
+	->git revert
+
+Disscused About College final semester majour Project.
+
+Started Firebase & Flutter Practice For Prject.
