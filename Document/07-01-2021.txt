@@ -4,6 +4,6 @@ Got to know more new git commands.
 	->git reset
 	->git revert
 
-Disscused About College final semester majour Project.
+Disscused About College final semester majour Project with teammates.
 
 Started Firebase & Flutter Practice For Prject.
