@@ -67,11 +67,20 @@
             t3 = 0;
 
 
+        function tip(b) {
+            if (b < 50) {
+                return parseInt(b) * 0.2;
+            } else if (b >= 50 && b <= 200) {
+                return parseInt(b) * 0.15;
+            } else {
+                return parseInt(b) * 0.1;
+            }
 
+        }
 
         document.querySelector("#txtBill1").addEventListener('focusout', function() {
             b1 = document.querySelector("#txtBill1").value;
-            t1 = (b1 * 0.2);
+            t1 = tip(b1);
             document.querySelector("#tip1").innerHTML = "$" + t1;
             document.querySelector("#total1").innerHTML = "$" + (parseInt(t1) + parseInt(b1));
             document.querySelector("#total").innerHTML = "$" + (parseInt(b1) + parseInt(b2) + parseInt(b3) + parseInt(t1) + parseInt(t2) + parseInt(t3));
@@ -81,7 +90,7 @@
 
         document.querySelector("#txtBill2").addEventListener('focusout', function() {
             b2 = document.querySelector("#txtBill2").value;
-            t2 = (b2 * 0.2);
+            t2 = tip(b2);
             document.querySelector("#tip2").innerHTML = "$" + t2;
             document.querySelector("#total2").innerHTML = "$" + (parseInt(t2) + parseInt(b2));
             document.querySelector("#total").innerHTML = "$" + (parseInt(b1) + parseInt(b2) + parseInt(b3) + parseInt(t1) + parseInt(t2) + parseInt(t3));
@@ -91,7 +100,7 @@
 
         document.querySelector("#txtBill3").addEventListener('focusout', function() {
             b3 = document.querySelector("#txtBill3").value;
-            t3 = (b3 * 0.2);
+            t3 = tip(b3);
             document.querySelector("#tip3").innerHTML = "$" + t3;
             document.querySelector("#total3").innerHTML = "$" + (parseInt(t3) + parseInt(b3));
             document.querySelector("#total").innerHTML = "$" + (parseInt(b1) + parseInt(b2) + parseInt(b3) + parseInt(t1) + parseInt(t2) + parseInt(t3));
