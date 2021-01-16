@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="css/c1.css">
+</head>
+
+<body>
+    <div class="row">
+        <table>
+            <thead>
+                <tr>
+                    <th>Restaurent Name</th>
+                    <th>Bill Amount</th>
+                    <th>Tip</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><label for="txtBill1">Restaurant 1 Bill</label></td>
+                    <td><input value="0" type="number" name="txtBill1" id="txtBill1"></td>
+                    <td><label id="tip1">0</label></td>
+                    <td><label id="total1">0</label></td>
+                </tr>
+                <tr>
+                    <tr>
+                        <td><label for="txtBill2">Restaurant 2 Bill</label></td>
+                        <td><input value="0" type="number" name="txtBill2" id="txtBill2"></td>
+                        <td><label id="tip2">0</label></td>
+                        <td><label id="total2">0</label></td>
+                    </tr>
+                </tr>
+                <tr>
+                    <tr>
+                        <td><label for="txtBill3">Restaurant 3 Bill</label></td>
+                        <td><input value="0" type="number" name="txtBill3" id="txtBill3"></td>
+                        <td><label id="tip3">0</label></td>
+                        <td><label id="total3">0</label></td>
+                    </tr>
+                </tr>
+                <tr>
+                    <tr>
+                        <td>Total</td>
+                        <td><label id="bill">0</label></td>
+                        <td><label id="tip">0</label></td>
+                        <td><label id="total">0</label></td>
+
+                    </tr>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <script>
+        var b1 = 0,
+            b2 = 0,
+            b3 = 0,
+            t1 = 0,
+            t2 = 0,
+            t3 = 0;
+
+
+
+
+        document.querySelector("#txtBill1").addEventListener('focusout', function() {
+            b1 = document.querySelector("#txtBill1").value;
+            t1 = (b1 * 0.2);
+            document.querySelector("#tip1").innerHTML = "$" + t1;
+            document.querySelector("#total1").innerHTML = "$" + (parseInt(t1) + parseInt(b1));
+            document.querySelector("#total").innerHTML = "$" + (parseInt(b1) + parseInt(b2) + parseInt(b3) + parseInt(t1) + parseInt(t2) + parseInt(t3));
+            document.querySelector("#tip").innerHTML = "$" + (parseInt(t1) + parseInt(t2) + parseInt(t3));
+            document.querySelector("#bill").innerHTML = "$" + (parseInt(b1) + parseInt(b2) + parseInt(b3));
+        });
+
+        document.querySelector("#txtBill2").addEventListener('focusout', function() {
+            b2 = document.querySelector("#txtBill2").value;
+            t2 = (b2 * 0.2);
+            document.querySelector("#tip2").innerHTML = "$" + t2;
+            document.querySelector("#total2").innerHTML = "$" + (parseInt(t2) + parseInt(b2));
+            document.querySelector("#total").innerHTML = "$" + (parseInt(b1) + parseInt(b2) + parseInt(b3) + parseInt(t1) + parseInt(t2) + parseInt(t3));
+            document.querySelector("#tip").innerHTML = "$" + (parseInt(t1) + parseInt(t2) + parseInt(t3));
+            document.querySelector("#bill").innerHTML = "$" + (parseInt(b1) + parseInt(b2) + parseInt(b3));
+        });
+
+        document.querySelector("#txtBill3").addEventListener('focusout', function() {
+            b3 = document.querySelector("#txtBill3").value;
+            t3 = (b3 * 0.2);
+            document.querySelector("#tip3").innerHTML = "$" + t3;
+            document.querySelector("#total3").innerHTML = "$" + (parseInt(t3) + parseInt(b3));
+            document.querySelector("#total").innerHTML = "$" + (parseInt(b1) + parseInt(b2) + parseInt(b3) + parseInt(t1) + parseInt(t2) + parseInt(t3));
+            document.querySelector("#tip").innerHTML = "$" + (parseInt(t1) + parseInt(t2) + parseInt(t3));
+            document.querySelector("#bill").innerHTML = "$" + (parseInt(b1) + parseInt(b2) + parseInt(b3));
+        });
+    </script>
+</body>
+
+</html>
