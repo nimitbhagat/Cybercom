@@ -1,0 +1,21 @@
+.row {
+    width: fit-content;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container {
+    margin: 1px;
+}
+
+table,
+td,
+th {
+    border: 2px solid;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}

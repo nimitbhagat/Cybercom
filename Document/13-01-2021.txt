@@ -1,0 +1,21 @@
+-> Today i learn about some more topics in javascript.
+	1)looping
+		-> For loop.
+		-> while loop.
+-> Also see the use of break and continue statement.
+-> DOM(Document object Model) and DOM Manipulation.
+	=> querySelector()
+	=> textContent()
+	=> innerHTML()
+	=> style()
+	=> addEventlistner()
+	=> getElementByID()
+->Also learn about the evnets and eventlistner.
+	=> Event
+    =>click
+    =>keypress
+    =>keyup
+    =>keydown
+	=> Event listner
+
+->random() and floor() function
