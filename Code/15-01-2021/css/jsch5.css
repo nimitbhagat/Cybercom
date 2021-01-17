@@ -8,9 +8,11 @@
 table,
 th,
 td {
-    /*padding: T R B L*/
-    padding: 10px 10px 10px 10px;
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    border: ridge;
+}
+
+table {
+    border-collapse: collapse;
 }
 
 #btnCalculate {
