@@ -1,3 +1,4 @@
+
 .row {
     width: fit-content;
     display: block;
@@ -18,4 +19,5 @@ td {
 
 table {
     border-collapse: collapse;
+
 }
