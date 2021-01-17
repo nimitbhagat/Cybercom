@@ -1,0 +1,10 @@
+=>First class function
+=>Immediately Invoked Function Expression
+=>Closuer
+=>Bind
+=>difference between ES5 & ES6.
+
+=>variable types
+	=> let : block scope
+    => var : function scope.
+	=> const :(GLOBAL) cannot be changed
