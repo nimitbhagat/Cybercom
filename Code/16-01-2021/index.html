@@ -34,9 +34,15 @@
                     <textarea name="" id="" cols="22" rows="5" class="form-element" placeholder="Your Comments.."></textarea>
                 </div>
 
-                <button type="button" class="btn">Send Now</button>
+                <button type="button" class="btn" id="btnSend" name="btnSend">Send Now</button>
             </center>
         </form>
     </div>
 </body>
+<script>
+    document.querySelector("#btnSend").addEventListener("click", function() {
+        alert("Your request has been submitted !");
+    });
+</script>
+
 </html>
