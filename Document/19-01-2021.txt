@@ -1,0 +1,7 @@
+=> Class in ES5 and ES6
+    =>Constructor to innitializations.
+    => only one constructir in class.
+    =>Syntax of calss in ES5 & ES6.
+
+=> Static method in a class.
+=> Inheritance : It can be applied by extends key word
