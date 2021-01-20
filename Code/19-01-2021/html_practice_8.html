@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <form method="post" action="./information.php">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-lg-2">
+
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <div class="card text-left">
+                        <div class="card-body">
+                            <h4 class="card-title">Personal Information</h4>
+                            <p class="card-text">
+                                <div class="form-group">
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" class="form-control" name="firstname" id="firstname" aria-describedby="helpId" placeholder="" required/>
+                                    <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname">Last Name</label>
+                                    <input type="text" class="form-control" name="lastname" id="lastname" aria-describedby="helpId" placeholder="" required/>
+                                    <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
+                                </div>
+                                <div class="form-row pt-3">
+                                    <div class="form-group col-lg-2 col-md-2 text-dark">
+                                        Date Of Birth
+                                    </div>
+                                    <div class="form-group  col-lg-3 col-md-3">
+                                        <select id="month" name="month" class="form-control">
+                                    <option value="Month" selected>Month</option>
+                                    <option value="Jan">Jan</option>
+                                    <option value="Feb">Feb</option>
+                                    <option value="Mar">Mar</option>
+                                    <option value="Apr">Apr</option>
+                                    <option value="May">May</option>
+                                    <option value="Jun">Jun</option>
+                                    <option value="Jul">Jul</option>
+                                    <option value="Aug">Aug</option>
+                                    <option value="Sep">Sep</option>
+                                    <option value="Oct">Oct</option>
+                                    <option value="Nov">Nov</option>
+                                    <option value="Dec">Dec</option>
+                                  </select>
+                                        <small id="helpIdmon" class="form-text text-danger" style="display:none">Select Month</small>
+                                    </div>
+                                    <div class="form-group col-md-3 col-lg-3">
+                                        <select id="day" name="day" class="form-control" required>
+                                <option selected>Day</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                        </select>
+                                        <small id="helpIdday" class="form-text text-danger" style="display:none">Select Day</small>
+                                    </div>
+                                    <div class="form-group col-md-3 col-lg-3">
+                                        <select id="year" name="year" class="form-control" required>
+                                    <option selected>Year</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                  </select>
+                                        <small id="helpIdyear" class="form-text text-danger" style="display:none">Select Year</small>
+                                    </div>
+                                    <div class="form-group col-md-1 col-lg-1">
+                                        <i class="fa fa-question-circle " title="Date Of Birth"></i>
+                                    </div>
+                                </div>
+                                <div class="form-row pt-3">
+                                    <div class="form-group col-lg-5 col-md-5 text-center">
+                                        Gender
+                                    </div>
+                                    <div class="form-group col-md-5 col-lg-5">
+                                        <select id="gender" name="gender" class="form-control">
+                                    <option value="Choose A Gender" selected>Choose A Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                  </select>
+                                        <small id="helpIdgen" class="form-text text-danger" style="display:none">Select Gender</small>
+                                    </div>
+                                    <div class="form-group col-md-2 col-lg-2">
+                                        <i class="fa fa-question-circle " title="Select Gender"></i>
+                                    </div>
+                                </div>
+
+                            </p>
+                            <div class="card-body">
+                                <h4 class="card-title">Account Information</h4>
+                                <p class="card-text">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" name="email" id="email" aria-describedby="helpId" placeholder="" required/>
+                                        <p id="helpIdemail" class="form-text text-danger text-center" style="display:none">( Your Email address will be Your Username )</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="re-email">Re-type Email</label>
+                                        <input type="text" class="form-control" name="re-email" id="re-email" aria-describedby="helpId" placeholder="">
+                                        <p id="helpIdreemail" class="form-text text-danger text-center" style="display:none">( Email Not Match.... )</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pass">Password</label>
+                                        <input type="password" class="form-control" name="pass" id="pass" aria-describedby="helpId" placeholder="" required/>
+                                        <p id="helpIdpass" class="form-text text-muted text-center">( Min 8 Character, 1 Number, Case-sensitive )</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="re-pass">Re-type Password</label>
+                                        <input type="password" class="form-control" name="re-pass" id="re-pass" aria-describedby="helpId" placeholder="">
+                                        <p id="helpIdrepass" class="form-text text-danger text-center" style="display:none">( Password Not Match.... )</p>
+                                    </div>
+                                    <div class="form-row pt-3">
+                                        <div class="form-group col-lg-4 col-md-4 text-center">
+                                            Security Question
+                                        </div>
+                                        <div class="form-group col-md-6 col-lg-6">
+                                            <select id="security-qsn" name="security-qsn" class="form-control">
+                                        <option value="Choose a Security Question" selected>Choose a Security Question</option>
+                                        <option value="pet Name Of Your Cat">pet Name Of Your Cat</option>
+                                        <option value="Your School name">Your School name</option>
+                                        <option value="Your pet name">Your pet name</option>
+                                      </select>
+                                            <p id="helpIdsecQ" class="form-text text-danger text-center" style="display:none">( Select Security Qustion.... )</p>
+                                        </div>
+                                        <div class="form-group col-md-2 col-lg-2">
+                                            <i class="fa fa-question-circle " title="Security Question is used to recover your password"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="security-ans">Security Answer</label>
+                                        <input type="text" class="form-control" name="security-ans" id="security-ans" aria-describedby="helpId" placeholder="" required />
+                                        <p id="helpId" class="form-text text-muted text-center">( Not Case-sensitive )</p>
+                                    </div>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Contact Information</h4>
+                                <p class="card-text">
+                                    <div class="form-group">
+                                        <label for="address">Address</label>
+                                        <textarea class="form-control" name="address" id="address" placeholder="" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city">City</label>
+                                        <input type="text" class="form-control" name="city" id="city" aria-describedby="helpId" placeholder="" required>
+                                        <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
+                                    </div>
+                                    <div class="form-row pt-3">
+                                        <div class="form-group col-lg-2 col-md-2 text-center">
+                                            State
+                                        </div>
+                                        <div class="form-group col-md-10 col-lg-10">
+                                            <select id="state" name="state" class="form-control">
+                                    <option selected>Choose State</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 col-lg-3">
+                                                Zip Code
+                                            </div>
+                                            <div class="col-md-3 col-lg-3">
+                                                <input type="text" class="form-control" name="zip" id="zip" aria-describedby="helpId" placeholder="" maxlength="6">
+                                            </div>
+                                            <div class="col-md-2 col-lg-2">
+                                                <button class="btn" disabled>Optional</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 col-lg-3">
+                                                Phone
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+                                                <input type="text" class="form-control" name="contact" id="contact" aria-describedby="helpId" placeholder="" required/>
+                                            </div>
+                                            <div class="col-md-2 col-lg-2">
+                                                <i class="fa fa-question-circle " title="Select Mobile or Telephone"></i>
+                                            </div>
+                                            <div class="col-md-3 col-lg-3">
+                                                <select id="cont_type" class="form-control">
+                                        <option value="Mobile" selected>Mobile</option>
+                                        <option value="Telephone">Telephone</option>
+                                    </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 col-lg-3">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2 col-lg-2">
+
+                                            </div>
+                                            <div class="col-md-4  col-lg-4">
+                                                <button type="submit" class="btn btn-primary pl-5 pr-5" onclick="check()">Submit</button>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+                                                <button type="reset" class="btn btn-warning pl-5 pr-5">Reset</button>
+                                            </div>
+                                            <div class="col-md-2 col-lg-2">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-lg-2">
+
+            </div>
+        </div>
+        </div>
+    </form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="html_practice_8.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
