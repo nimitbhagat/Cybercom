@@ -1,0 +1,7 @@
+=> Map Method : map method maps each value of array
+
+=> Arrow Function : Arrow function allows you to shorten the functions syntax
+
+=> Destructuring : it allows you to assign value using square brackets.
+
+=> Array in ES5 & ES6
