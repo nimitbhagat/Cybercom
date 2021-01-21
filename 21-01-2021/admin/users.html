@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Dasboard | ADMIN</title>
+    <title>Users | ADMIN</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,7 +36,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link logout">Logout</a>
+                <a class="nav-link logout" onclick="logout()">Logout</a>
             </li>
         </ul>
     </nav>
@@ -79,17 +79,6 @@
                 </tr>
             </thead>
             <tbody id="data">
-                <tr>
-                    <td scope="row">Nimit</td>
-                    <td>admin@gmail.com</td>
-                    <td>abc123s</td>
-                    <td>22/05/1997</td>
-                    <td>23</td>
-                    <td>
-                        <button class="btn btn-primary" name="0" id="0">Edit</button>
-                        <button class="btn btn-danger" name="0" id="0">Delete</button>
-                    </td>
-                </tr>
             </tbody>
         </table>
     </div>
@@ -99,23 +88,7 @@
     <script>
         var users = [];
 
-        function load() {
-
-            loadData();
-
-            if (sessionStorage.getItem("type") != "A") {
-                sessionStorage.clear();
-                window.location.replace("/login.html");
-            }
-
-            document.getElementById("wlcMsg").innerHTML = "Welcome " + sessionStorage.getItem("name");
-
-            if (localStorage.getItem('users')) {
-                users = JSON.parse(localStorage.getItem('users'));
-            }
-        }
-
-
+        //Loads The Data In Table
         function loadData() {
             var dataTable = document.getElementById("data");
             var values = "";
@@ -125,17 +98,65 @@
                     var email = users[user].email;
                     var pass = users[user].password;
                     var bdate = users[user].birthdate;
+                    var age = new Date().getYear() - new Date(bdate).getYear();
+
                     values += "<tr>" +
                         "<td>" + name + "</td>" +
                         "<td>" + email + "</td>" +
                         "<td>" + pass + "</td>" +
                         "<td>" + bdate + "</td>" +
+                        "<td>" + age + "</td>" +
+                        "<td>" +
+                        "<input type='submit' class='btn btn-primary' name='edit_" +
+                        user + "' id='edit_" +
+                        user + "' onclick='editData()' value='Edit'>" +
+
+                        "<button type='submit' class='btn btn-danger' name=delete_" +
+                        user + " id='delete_" +
+                        user + "' onclick=\"deleteData()\">Delete</button></td>" +
                         "</tr>";
                 }
             }
             dataTable.innerHTML = values;
         }
 
+        //Edit Existing Data
+        function editData() {
+            for (var i = 1; i < users.length; i++) {
+                alert(document.getElementById('edit_' + i).clicked);
+            }
+        }
+
+        //Delete Existing Data
+        function deleteData() {
+            for (var i = 1; i < users.length; i++) {
+                var del = "delete_" + i;
+                alert(del);
+                alert(document.getElementById("edit_1").clicked);
+
+            }
+        }
+
+        //Check Whether Admin Is Loggedin or not and Load The Data in table
+        function load() {
+            if (sessionStorage.getItem("type") != "A") {
+                sessionStorage.clear();
+                window.location.replace("/login.html");
+            }
+
+            document.getElementById("wlcMsg").innerHTML = "Welcome " + sessionStorage.getItem("name");
+
+            if (localStorage.getItem('users')) {
+                users = JSON.parse(localStorage.getItem('users'));
+                loadData();
+            }
+
+            loadData();
+        }
+
+
+
+        //Adds New User To LocalStorage 
         function addUser() {
             var name = document.getElementById("txtName").value;
             var email = document.getElementById("txtEmail").value;
@@ -148,8 +169,6 @@
                     name: name,
                     email: email,
                     password: pass,
-                    city: "",
-                    state: "",
                     birthdate: bdate
                 };
 
@@ -165,6 +184,11 @@
             }
         }
     </script>
+
+    <!--Logout JavaScript-->
+    <script src="/js/logout.js"></script>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

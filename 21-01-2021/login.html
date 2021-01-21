@@ -73,6 +73,10 @@
                         } else {
                             window.location("user/dashboard.html");
                         }
+                    } else {
+                        document.getElementById("msg").innerHTML = "Please Enter Correct Email id & Password";
+                        document.getElementById("msg").hidden = false;
+                        document.getElementById("msg").focus();
                     }
 
                 }
