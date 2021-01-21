@@ -63,6 +63,8 @@
             </div>
             <div class="form-group col-12">
                 <button id="btnAddUser" name="btnAddUser" class="btn btn-block btn-primary col-12 m-2 " onclick="addUser()">Add User</button>
+                <button id="btnEditUser" name="btnEditUser" class="btn btn-block btn-primary col-12 m-2 " hidden onclick="editUser()">Edit User</button>
+                <input type="hidden" value="" id="hdnId" name="hdnId">
             </div>
         </div>
         <label id="msg" class="alert-danger form-control text-center" hidden></label>
@@ -107,13 +109,13 @@
                         "<td>" + bdate + "</td>" +
                         "<td>" + age + "</td>" +
                         "<td>" +
-                        "<input type='submit' class='btn btn-primary' name='edit_" +
-                        user + "' id='edit_" +
-                        user + "' onclick='editData()' value='Edit'>" +
+                        "<input type='submit' class='btn btn-primary' name=" + user +
+                        " id='edit_" +
+                        user + "' onclick='editData(this)' value='Edit'>" +
 
-                        "<button type='submit' class='btn btn-danger' name=delete_" +
+                        "<button type='submit' class='btn btn-danger' name=" +
                         user + " id='delete_" +
-                        user + "' onclick=\"deleteData()\">Delete</button></td>" +
+                        user + "' onclick=\"deleteData(this)\">Delete</button></td>" +
                         "</tr>";
                 }
             }
@@ -121,20 +123,46 @@
         }
 
         //Edit Existing Data
-        function editData() {
-            for (var i = 1; i < users.length; i++) {
-                alert(document.getElementById('edit_' + i).clicked);
+        function editData(el) {
+            document.getElementById("btnAddUser").hidden = true;
+            document.getElementById("btnEditUser").hidden = false;
+
+            //alert(el.name);
+            document.getElementById("txtName").value = users[el.name].name;
+            document.getElementById("txtEmail").value = users[el.name].email;
+            document.getElementById("txtPassword").value = users[el.name].password;
+            document.getElementById("txtBdate").value = users[el.name].birthdate;
+            document.getElementById("hdnId").value = el.name;
+        }
+
+        function editUser() {
+            var name = document.getElementById("txtName").value;
+            var email = document.getElementById("txtEmail").value;
+            var pass = document.getElementById("txtPassword").value;
+            var bdate = document.getElementById("txtBdate").value;
+            var id = document.getElementById("hdnId").value;
+
+            if (name != "" && email != "" && pass != "" && bdate != "") {
+                users[id].name = name;
+                users[id].email = email;
+                users[id].password = pass;
+                users[id].birthdate = bdate;
+
+                localStorage.setItem("users", JSON.stringify(users));
+                loadData();
+                document.getElementById("btnAddUser").hidden = false;
+                document.getElementById("btnEditUser").hidden = true;
+
+            } else {
+                document.getElementById("msg").innerHTML = "Please Enter All The Details";
+                document.getElementById("msg").hidden = false;
+                document.getElementById("msg").focus();
             }
         }
 
         //Delete Existing Data
-        function deleteData() {
-            for (var i = 1; i < users.length; i++) {
-                var del = "delete_" + i;
-                alert(del);
-                alert(document.getElementById("edit_1").clicked);
-
-            }
+        function deleteData(el) {
+            alert(users.filter(el.name));
         }
 
         //Check Whether Admin Is Loggedin or not and Load The Data in table
@@ -169,7 +197,9 @@
                     name: name,
                     email: email,
                     password: pass,
-                    birthdate: bdate
+                    birthdate: bdate,
+                    in: "",
+                    out: ""
                 };
 
                 users.push(user);

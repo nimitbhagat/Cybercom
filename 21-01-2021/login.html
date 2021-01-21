@@ -60,18 +60,23 @@
             if (email != "" && pass != "") {
 
                 for (var user in users) {
-
                     if (users[user].email == email && users[user].password == pass) {
 
                         if (users[user].type == "A") {
 
+                            sessionStorage.setItem("obj", users[user]);
                             sessionStorage.setItem("name", users[user].name);
                             sessionStorage.setItem("type", users[user].type);
+                            sessionStorage.setItem("id", user);
                             //alert(users[user].email + users[user].password);
                             //alert(sessionStorage.getItem("name") + sessionStorage.getItem("type"));
                             window.location.replace("admin/dashboard.html");
                         } else {
-                            window.location("user/dashboard.html");
+                            sessionStorage.setItem("obj", users[user]);
+                            sessionStorage.setItem("name", users[user].name);
+                            sessionStorage.setItem("type", users[user].type);
+                            sessionStorage.setItem("id", user);
+                            window.location.replace("user/dashboard.html");
                         }
                     } else {
                         document.getElementById("msg").innerHTML = "Please Enter Correct Email id & Password";
