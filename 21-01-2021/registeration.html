@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <label for="ddlCity"></label>
                         <select name="ddlCity" id="ddlCity" class="form-control">
-                            <option disabled selected>Select City</option>
+                            <option value="0" disabled selected>Select City</option>
                             <option value="Valsad">Valsad</option>
                             <option value="Surat">Surat</option>
                             <option value="Ahmedabad">Ahmedabad</option>
@@ -53,7 +53,7 @@
                     <div class="form-group">
                         <label for="ddlState"></label>
                         <select name="ddlState" id="ddlState" class="form-control">
-                            <option disabled selected>Select State</option>
+                            <option value="0" disabled selected>Select State</option>
                             <option value="Gujarat">Gujarat</option>
                             <option value="Maharashtra">Maharashtra</option>
                             <option value="Rajasthan">Rajasthan</option>
@@ -63,13 +63,13 @@
 
                     <div class="btn-group" data-toggle="buttons">
                         <label class="btn">
-                            <input type="checkbox" name="chkTC" id="chkTC">
+                            <input type="checkbox" name="chkTC" id="chkTC" value="true">
                             Terms & Conditions
                         </label>
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-primary form-control" name="btnRegister" id="btnRegister" onclick="">REGISTER</button>
+                        <button type="button" class="btn btn-primary form-control" name="btnRegister" id="btnRegister" onclick="register()">REGISTER</button>
                     </div>
 
                 </form>
@@ -81,33 +81,68 @@
     <script>
         var users = [];
 
-        var user = {
-            name: uname,
-            email: uemail,
-            password: upass,
-            city: ucity,
-            s
 
-        };
 
         function load() {
             if (localStorage.getItem('users')) {
                 users = JSON.parse(localStorage.getItem('users'));
             }
+
+            for (var user in users) {
+
+                if (users[user].type) {
+                    alert("Admin Already Registered");
+                    window.location.replace("login.html");
+                    document.getElementById("btnRegister").disabled = true;
+                }
+            }
         }
 
         function register() {
-            var n = document.getElementById("txtName").value;
-            var e = document.getElementById("txtEmail").value;
-            var p = document.getElementById("txtPassword").value;
-            var cp = document.getElementById("txtCPassword").value;
-            var c = document.getElementById("ddlCity").value;
-            var s = document.getElementById("txtState").value;
+            var name = document.getElementById("txtName").value;
+            var email = document.getElementById("txtEmail").value;
+            var pass = document.getElementById("txtPassword").value;
+            var cpass = document.getElementById("txtCPassword").value;
+            var city = document.getElementById("ddlCity").value;
+            var state = document.getElementById("ddlState").value;
+            var tc = document.getElementById("chkTC").checked;
 
+            if (name != "" && email != "" && pass != "" && cpass != "" && city != 0 && state != 0) {
+                if (tc) {
+                    if (pass == cpass) {
 
+                        var user = {
+                            type: "A",
+                            name: name,
+                            email: email,
+                            password: pass,
+                            city: city,
+                            state: state
+                        };
+                        users.push(user);
+
+                        localStorage.setItem("users", JSON.stringify(users));
+
+                        alert("Admin Added");
+
+                        window.location.replace("login.html");
+
+                    } else {
+                        document.getElementById("msg").innerHTML = "Password Do Not Match";
+                        document.getElementById("msg").hidden = false;
+                        document.getElementById("msg").focus();
+
+                    }
+                } else {
+                    document.getElementById("msg").innerHTML = "Accpet Terms & Conditions";
+                    document.getElementById("msg").hidden = false;
+                    document.getElementById("msg").focus();
+                }
+            } else {
+                document.getElementById("msg").hidden = false;
+                document.getElementById("msg").focus();
+            }
         }
-
-        document.getElementById("btnRegister").addEventListener('click', register);
     </script>
 
     <!-- Optional JavaScript -->
