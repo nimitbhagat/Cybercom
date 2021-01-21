@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Dasboard | ADMIN</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .logout {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body onload="load()">
+
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" id="wlcMsg"></a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="./dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./users.html">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./loginSession.html">Login Session</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+
+    <br>
+
+    <div class="container">
+        <div class="form-inline col-12">
+            <div class="form-group col-3">
+                <label for="txtName">Name</label>
+                <input type="text" name="txtName" id="txtName" class="form-control col-12 m-2" placeholder="Name">
+            </div>
+            <div class="form-group col-3">
+                <label for="txtEmail">Email</label>
+                <input type="email" name="txtEmail" id="txtEmail" class="form-control col-12 m-2" placeholder="Email">
+            </div>
+            <div class="form-group col-3">
+                <label for="txtPassword">Password</label>
+                <input type="text" name="txtPassword" id="txtPassword" class="form-control col-12 m-2" placeholder="Password">
+            </div>
+            <div class="form-group col-3">
+                <label for="">Birthdate</label>
+                <input type="date" name="txtBdate" id="txtBdate" class="form-control col-12 m-2" placeholder="Birthdate">
+            </div>
+            <div class="form-group col-12">
+                <button id="btnAddUser" name="btnAddUser" class="btn btn-block btn-primary col-12 m-2 " onclick="addUser()">Add User</button>
+            </div>
+        </div>
+        <label id="msg" class="alert-danger form-control text-center" hidden></label>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Birthdate</th>
+                    <th>Age</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="data">
+                <tr>
+                    <td scope="row">Nimit</td>
+                    <td>admin@gmail.com</td>
+                    <td>abc123s</td>
+                    <td>22/05/1997</td>
+                    <td>23</td>
+                    <td>
+                        <button class="btn btn-primary" name="0" id="0">Edit</button>
+                        <button class="btn btn-danger" name="0" id="0">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <script>
+        var users = [];
+
+        function load() {
+
+            loadData();
+
+            if (sessionStorage.getItem("type") != "A") {
+                sessionStorage.clear();
+                window.location.replace("/login.html");
+            }
+
+            document.getElementById("wlcMsg").innerHTML = "Welcome " + sessionStorage.getItem("name");
+
+            if (localStorage.getItem('users')) {
+                users = JSON.parse(localStorage.getItem('users'));
+            }
+        }
+
+
+        function loadData() {
+            var dataTable = document.getElementById("data");
+            var values = "";
+            for (var user in users) {
+                if (users[user].type == "U") {
+                    var name = users[user].name;
+                    var email = users[user].email;
+                    var pass = users[user].password;
+                    var bdate = users[user].birthdate;
+                    values += "<tr>" +
+                        "<td>" + name + "</td>" +
+                        "<td>" + email + "</td>" +
+                        "<td>" + pass + "</td>" +
+                        "<td>" + bdate + "</td>" +
+                        "</tr>";
+                }
+            }
+            dataTable.innerHTML = values;
+        }
+
+        function addUser() {
+            var name = document.getElementById("txtName").value;
+            var email = document.getElementById("txtEmail").value;
+            var pass = document.getElementById("txtPassword").value;
+            var bdate = document.getElementById("txtBdate").value;
+
+            if (name != "" && email != "" && pass != "" && bdate != "") {
+                var user = {
+                    type: "U",
+                    name: name,
+                    email: email,
+                    password: pass,
+                    city: "",
+                    state: "",
+                    birthdate: bdate
+                };
+
+                users.push(user);
+
+                localStorage.setItem("users", JSON.stringify(users));
+                loadData();
+
+            } else {
+                document.getElementById("msg").innerHTML = "Please Enter All The Details";
+                document.getElementById("msg").hidden = false;
+                document.getElementById("msg").focus();
+            }
+        }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

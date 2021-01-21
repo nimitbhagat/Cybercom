@@ -80,7 +80,7 @@
 
             if (sessionStorage.getItem("type") != "A") {
                 sessionStorage.clear();
-                window.location.replace("/login.html");
+                window.location.replace("./login.html");
             }
 
             document.getElementById("wlcMsg").innerHTML = "Welcome " + sessionStorage.getItem("name");

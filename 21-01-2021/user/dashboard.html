@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="load()">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <!-- Brand/logo -->
-        <a class="navbar-brand">USER</a>
+        <a class="navbar-brand" id="wlcMsg">USER</a>
 
         <!-- Links -->
         <ul class="navbar-nav">
@@ -24,20 +24,12 @@
         </ul>
     </nav>
 
-
-
-
-
-
-
-
-
     <script>
         function load() {
 
             if (sessionStorage.getItem("type") != "U") {
                 sessionStorage.clear();
-                window.location.replace("./login.html");
+                window.location.replace("/login.html");
             }
 
             document.getElementById("wlcMsg").innerHTML = "Welcome " + sessionStorage.getItem("name");
