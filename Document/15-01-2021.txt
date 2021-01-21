@@ -1,7 +1,0 @@
--> Today I learn about the object in the javaScript.
-	->type of object.
-		1) Primitive 
-		2) Non Primitive
--> Constructor and its creation
--> inheritance and prototype concept.
--> difference between primitive and object.

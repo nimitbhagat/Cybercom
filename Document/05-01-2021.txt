@@ -1,4 +1,0 @@
-Learnt the use of git.
-Practiced Git Commands.
-
-Faced Problem in Fetching Data From Repo.
