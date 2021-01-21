@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body onload="load()">
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <h1>REGISTERATION</h1>
+                <label id="msg" class="alert-danger form-control" hidden>Please Enter All The Details</label>
+                <form>
+                    <div class="form-group">
+                        <label for="txtName"></label>
+                        <input type="name" name="txtName" id="txtName" class="form-control" placeholder="Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtEmail"></label>
+                        <input type="email" name="txtEmail" id="txtEmail" class="form-control" placeholder="Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtPassword"></label>
+                        <input type="password" name="txtPassword" id="txtPassword" class="form-control" placeholder="Password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtCPassword"></label>
+                        <input type="password" name="txtCPassword" id="txtCPassword" class="form-control" placeholder="Confirm Password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddlCity"></label>
+                        <select name="ddlCity" id="ddlCity" class="form-control">
+                            <option disabled selected>Select City</option>
+                            <option value="Valsad">Valsad</option>
+                            <option value="Surat">Surat</option>
+                            <option value="Ahmedabad">Ahmedabad</option>
+                            <option value="Rajkot">Rajkot</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddlState"></label>
+                        <select name="ddlState" id="ddlState" class="form-control">
+                            <option disabled selected>Select State</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Goa">Goa</option>
+                        </select>
+                    </div>
+
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn">
+                            <input type="checkbox" name="chkTC" id="chkTC">
+                            Terms & Conditions
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary form-control" name="btnRegister" id="btnRegister" onclick="">REGISTER</button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+
+    <script>
+        var users = [];
+
+        var user = {
+            name: uname,
+            email: uemail,
+            password: upass,
+            city: ucity,
+            s
+
+        };
+
+        function load() {
+            if (localStorage.getItem('users')) {
+                users = JSON.parse(localStorage.getItem('users'));
+            }
+        }
+
+        function register() {
+            var n = document.getElementById("txtName").value;
+            var e = document.getElementById("txtEmail").value;
+            var p = document.getElementById("txtPassword").value;
+            var cp = document.getElementById("txtCPassword").value;
+            var c = document.getElementById("ddlCity").value;
+            var s = document.getElementById("txtState").value;
+
+
+        }
+
+        document.getElementById("btnRegister").addEventListener('click', register);
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
