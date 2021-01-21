@@ -56,7 +56,26 @@
             var email = document.getElementById("txtEmail").value;
             var pass = document.getElementById("txtPassword").value;
 
+
             if (email != "" && pass != "") {
+
+                for (var user in users) {
+
+                    if (users[user].email == email && users[user].password == pass) {
+
+                        if (users[user].type == "A") {
+
+                            sessionStorage.setItem("name", users[user].name);
+                            sessionStorage.setItem("type", users[user].type);
+                            //alert(users[user].email + users[user].password);
+                            //alert(sessionStorage.getItem("name") + sessionStorage.getItem("type"));
+                            window.location.replace("admin/dashboard.html");
+                        } else {
+                            window.location("user/dashboard.html");
+                        }
+                    }
+
+                }
 
             } else {
                 document.getElementById("msg").innerHTML = "Please Enter Email id & Password";

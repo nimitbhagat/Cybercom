@@ -2,71 +2,30 @@
 <html lang="en">
 
 <head>
-    <title>Dasboard | ADMIN</title>
+    <title>Dasboard | USER</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-        .logout {
-            cursor: pointer;
-        }
-    </style>
 </head>
 
-<body onload="load()">
-
-
+<body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <!-- Brand/logo -->
-        <a class="navbar-brand" id="wlcMsg"></a>
+        <a class="navbar-brand">USER</a>
 
         <!-- Links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Users</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Login Session</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link logout">Logout</a>
+                <a class="nav-link" href="#">Link 1</a>
             </li>
         </ul>
     </nav>
 
 
-    <div class="container">
-        <div class="row">
-            <br>
-            <div class="card-columns">
-                <div class="card bg-primary">
-                    <div class="card-body text-center">
-                        <p class="card-text">Under 18 Years Users</p>
-                        <p class="card-text" id="under18">12 Users</p>
-                    </div>
-                </div>
-                <div class="card bg-warning">
-                    <div class="card-body text-center">
-                        <p class="card-text">18-50 Years Users</p>
-                        <p class="card-text" id="under18">12 Users</p>
-                    </div>
-                </div>
-                <div class="card bg-success">
-                    <div class="card-body text-center">
-                        <p class="card-text">Above 50 Years User</p>
-                        <p class="card-text" id="under18">12 Users</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
 
 
@@ -74,11 +33,9 @@
 
 
     <script>
-        var users = [];
-
         function load() {
 
-            if (sessionStorage.getItem("type") != "A") {
+            if (sessionStorage.getItem("type") != "U") {
                 sessionStorage.clear();
                 window.location.replace("./login.html");
             }
