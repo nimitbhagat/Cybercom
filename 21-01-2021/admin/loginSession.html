@@ -45,26 +45,18 @@
     <div class="container">
         <div class="row">
             <br>
-            <div class="card-columns">
-                <div class="card bg-primary">
-                    <div class="card-body text-center">
-                        <p class="card-text">Under 18 Years Users</p>
-                        <p class="card-text" id="under18">12 Users</p>
-                    </div>
-                </div>
-                <div class="card bg-warning">
-                    <div class="card-body text-center">
-                        <p class="card-text">18-50 Years Users</p>
-                        <p class="card-text" id="under18">12 Users</p>
-                    </div>
-                </div>
-                <div class="card bg-success">
-                    <div class="card-body text-center">
-                        <p class="card-text">Above 50 Years User</p>
-                        <p class="card-text" id="under18">12 Users</p>
-                    </div>
-                </div>
-            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Login</th>
+                        <th>Logout</th>
+                    </tr>
+                </thead>
+                <tbody id="data">
+
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -75,6 +67,25 @@
 
     <script>
         var users = [];
+
+        function loadData() {
+            var dataTable = document.getElementById("data");
+            var values = "";
+            for (var user in users) {
+                if (users[user].type == "U") {
+                    var name = users[user].name;
+                    var lin = users[user].lin;
+                    var lout = users[user].lout;
+
+                    values += "<tr>" +
+                        "<td>" + name + "</td>" +
+                        "<td>" + lin + "</td>" +
+                        "<td>" + lout + "</td>" +
+                        "</tr>";
+                }
+            }
+            dataTable.innerHTML = values;
+        }
 
         function load() {
 
@@ -88,6 +99,7 @@
             if (localStorage.getItem('users')) {
                 users = JSON.parse(localStorage.getItem('users'));
             }
+            loadData();
         }
     </script>
 

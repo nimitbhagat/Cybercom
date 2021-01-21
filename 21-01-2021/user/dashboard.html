@@ -39,6 +39,7 @@
 
     <script>
         function load() {
+            var users = [];
 
             if (sessionStorage.getItem("type") != "U") {
                 sessionStorage.clear();
@@ -52,8 +53,8 @@
             }
 
 
-            var date = new Date().getDate();
-            var month = new Date().getMonth() + 1;
+            var date = new Date(sessionStorage.getItem("bd")).getDate();
+            var month = new Date(sessionStorage.getItem("bd")).getMonth() + 1;
 
             if (month == new Date().getMonth() + 1 && date == new Date().getDate()) {
                 document.getElementById("happyBd").hidden = false;

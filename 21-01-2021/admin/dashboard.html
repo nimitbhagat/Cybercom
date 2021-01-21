@@ -49,19 +49,19 @@
                 <div class="card bg-primary">
                     <div class="card-body text-center">
                         <p class="card-text">Under 18 Years Users</p>
-                        <p class="card-text" id="under18">12 Users</p>
+                        <p class="card-text" id="under18">0 Users</p>
                     </div>
                 </div>
                 <div class="card bg-warning">
                     <div class="card-body text-center">
                         <p class="card-text">18-50 Years Users</p>
-                        <p class="card-text" id="btwn18_50">12 Users</p>
+                        <p class="card-text" id="btwn18_50">0 Users</p>
                     </div>
                 </div>
                 <div class="card bg-success">
                     <div class="card-body text-center">
                         <p class="card-text">Above 50 Years User</p>
-                        <p class="card-text" id="above50">12 Users</p>
+                        <p class="card-text" id="above50">0 Users</p>
                     </div>
                 </div>
             </div>
@@ -90,21 +90,20 @@
             if (localStorage.getItem('users')) {
                 users = JSON.parse(localStorage.getItem('users'));
             }
-
-            for (var i = 1; i <= userNo.length; i++) {
-                var age = new Date().getYear() - new Date(users[i].birthdate).getYear();
+            var i = 1;
+            for (var i in users) {
+                var d = users[i].birthdate;
+                var age = new Date().getYear() - new Date(d).getYear();
                 if (age < 18) {
                     userNo[0]++;
                 } else if (age >= 18 && age <= 50) {
                     userNo[1]++;
-                } else {
+                } else if (age > 50) {
                     userNo[2]++;
                 }
                 document.getElementById("under18").innerHTML = userNo[0] + " Users";
                 document.getElementById("btwn18_50").innerHTML = userNo[1] + " Users";
                 document.getElementById("above50").innerHTML = userNo[2] + " Users";
-
-
             }
         }
     </script>
