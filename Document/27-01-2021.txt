@@ -1,0 +1,18 @@
+=> Arrays
+    => Associative Array
+    => Numeric Array
+    => Multi Dimentional Array
+
+=> include & require function
+
+=> Expression matching using preg_match() finction
+
+=> String Functions
+    => length
+    => strtoUpper
+    => strtolower
+    => strpos
+    => substr
+    => substr_replace
+
+-> Also see some of the methods of string  and arrays.
