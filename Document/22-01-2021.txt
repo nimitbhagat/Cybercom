@@ -1,0 +1,10 @@
+=> Basics of Php.
+=> assignment, logical, arthemetic, comparison operators.
+=> control statements
+    => if else
+    => if-esle if
+    => switch
+=> looping statements
+    => while looping
+    => do while looping
+    => for loop
