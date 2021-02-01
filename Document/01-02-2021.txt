@@ -1,0 +1,10 @@
+=> Database connection
+	=> mysqli_connect()
+	=> mysqli_db_select()
+
+=> SELECT records form database
+	=> mysqli_query()
+	=> mysqli_fetch_assoc()
+	=> mysqli_fetch_array()
+	=> mysqli_fetch_row()
+	=> mysqli_fetch_all()
