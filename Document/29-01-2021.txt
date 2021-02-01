@@ -1,0 +1,42 @@
+=> Securitu using htmlentities
+    => this function will print the text as it is it will not convert into html is present.
+
+=> Session
+    => session_start() to start the sesstion
+    => $_SESSION['key']=value : Set the session value
+    => session_unset()
+    => session_destroy()
+
+=> Cookies
+    =>setcookie(key, value, time of expiry);
+    =>to delete cookie : setcookie(key, value, current time - 60);
+
+=> File Handling
+    => 3 modes to open file
+        -> w : to write
+        -> r : to read
+        -> a : to appand
+    => file_exists(filename) : check if file exist or not (return 1 if exixt else 0).
+    => opendir(directory name) : open the directory with all the file names in array.
+    => readdir() : read file name one by one from directory.
+    => unlink(file name) : to delete the file.
+    => rename(old name, new name) : to rename the file.
+    => fopen to create file(if not exist) and open.
+    => fclose to close the open file.
+    => fwrite to write into file.
+
+=> Explode And Implode
+    => Explode splits the string from the delimiter specified and creates the array
+    => Implode creates the string with the delimiter specified from the array
+
+=> File Uploading
+    => parameters
+        => name - name of file
+        => type - type of file
+        => size - size in byte
+        => tmp_name - temperort location
+    
+    => $_FILES[html_element_name][parameter name]
+    => move_uploaded_file(temperort name, upload loction with file name) to move file from temperort location to server
+
+=> Counting the unique user of websites

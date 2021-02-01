@@ -1,0 +1,8 @@
+=> Hashing / Encrypting
+    => md5(string) : convert string to unique 32bit hash value. 
+
+=> sending mail
+    =>mail(to,subject,body,header) use to send mail
+
+=> reading xml data
+    =>simplexml_load_file(file name/ xml url);

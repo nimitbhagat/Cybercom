@@ -1,0 +1,31 @@
+=> Word Censoring and Find & Replace
+    => substr_replace() : Matches Case and replace the words
+    => substr_ireplace() : Ignore Case and replace the words
+
+=> timestamp
+    => time() : return total seconds (since January 1 1970 00:00:00 GMT).
+    => date() : convert seconds to desired Format.
+    =>strtotime() : this will convert srting to time;
+        ->for eg : strtotime('0 years') : will return current time sceonds (since January 1 1970 00:00:00 GMT)
+                   strtotime('1 years') : will return 1 year later from current time and date sceonds (since January 1 1970 00:00:00 GMT)
+
+=> Generating Random Number using rand(minval,maxval)
+
+=> $_SERVER variable
+    => $_SERVER['SCRIPT_NAME'] : Return File Name 
+    => $_SERVER['HTTP_HOST'] : return the host
+
+=> Redirecting
+    =>header('location:filename.php')
+
+=> Visitors IP Address
+    => $_SERVER['HTTP_CLIENT_IP']
+    => $_SERVER['HTTP_X_FORWARDED_FOR']
+    => $_SERVER['REMOTE_ADDR']
+
+=> Detecting Browser
+    =>get_browser($_SERVER['HTTP_USER_AGENT'], true)['browser']
+
+=> Form Data Handling
+    => $_POST
+    => $_GET
