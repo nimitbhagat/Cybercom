@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "kokororin.vscode-phpfmt",
+        "sophisticode.php-formatter",
+        "esbenp.prettier-vscode"
+    ]
+}
